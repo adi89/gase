@@ -17,13 +17,8 @@ describe Broker do
       end
     end
 
-    describe "#add_client"
-      it "adds new client" do
-        expect(broker.clients).to_not eq nil
-      end
-    end
 
-end
+
 
 
 

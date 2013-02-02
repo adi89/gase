@@ -1,11 +1,14 @@
 class Broker
   attr_accessor :name
 
-  def initializer(name)
+  def initialize(name)
     @name = name
+    @address= address
+    @clients= {}
   end
 
   def to_s
     puts "This is the #{name} brokerage"
   end
 end
+

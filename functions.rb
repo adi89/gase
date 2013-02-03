@@ -3,8 +3,21 @@ $broker= Broker.new('GASE Broker')
 
 ######### MAIN MENU FUNCTION
 
+
+
+
+
+
+
+
+
 def menu
   puts "clear"
+  puts " _______ _______ _______ _______ "
+  puts "|     __|   _   |     __|    ___|"
+  puts "|    |  |       |__     |    ___|"
+  puts "|_______|___|___|_______|_______|"
+  puts "                                 "
   puts "****Welcome to the greatest broker program EVER *** \n"
   puts "Register as a new client (necessary if you wish to buy or sell)"
   puts " "
@@ -12,7 +25,9 @@ def menu
   puts "(2) Buy shares"
   puts "(3) Sell shares"
   puts "(4) View client balances"
-  puts "(Q) Quit GASE Broker\n\n "
+  puts "(Q) Quit GASE Broker\n\n"
+  puts "------------------------"
+  print"Enter your selection:  "
   gets.chomp
 end
 
@@ -23,7 +38,7 @@ def new_client
   name= gets.chomp
   print "How much money will you deposit in cash account?"
   cash= gets.chomp
-  $broker.clients[name]= Client.new(name,cash)
+  $broker.clients[name] << Client.new(name,cash)
   $broker.clients[name].portfolios['General']= {}
 end
 

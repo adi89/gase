@@ -3,7 +3,6 @@ class Broker
 
   def initialize(name)
     @name = name
-    @address= address
     @clients= {}
   end
 

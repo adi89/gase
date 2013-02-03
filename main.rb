@@ -7,6 +7,9 @@ require_relative "portfolio"
 require_relative "client"
 require_relative "stock"
 
+$broker= Broker.new('GASE Broker')
+
+
 response = menu
 while response != 'Q'
   case response

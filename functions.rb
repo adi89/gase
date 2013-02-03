@@ -1,17 +1,10 @@
 
-require 'yahoofinance'
 
-$broker= Broker.new('GASE Broker')
+$broker= Broker.new('GASE')
+$broker.clients = Client.new('test', 20000)
+
 
 ######### MAIN MENU FUNCTION
-
-
-
-
-
-
-
-
 
 def menu
   puts `clear`
@@ -20,7 +13,7 @@ def menu
   puts "|    |  |       |__     |    ___|"
   puts "|_______|___|___|_______|_______|"
   puts "                                 "
-  puts "****Welcome to the greatest broker program EVER *** \n"
+  puts "****Welcome to the worst broker program EVER *** \n"
   puts "Register as a new client (necessary if you wish to buy or sell)"
   puts " "
   puts "(1) Enroll a new client"
@@ -40,10 +33,12 @@ def new_client
   name= gets.chomp
   print "How much money will you deposit in cash account?"
   cash= gets.chomp
-  name = Client.new(name, cash)
-  $broker.clients['name']
-  $broker.clients[name].portfolios['General']= Portfolio.new('General')
-  puts "#{name} has been added!"
+
+ $broker.clients[name] = Client.new(name, cash)
+
+  #puts $broker.clients[name].name
+   $broker.clients[name].portfolios['General'] = Portfolio.new('General')
+
   puts "press return to continue"
   gets
 end
@@ -124,15 +119,15 @@ def buy_shares
               when 'Y'
                   prints "Enter portfolio name"
                   pname= gets.chomp.upcase
-                  $broker.client[name].cash -= val
+                  $broker.clients[name].cash -= val
                     if $broker.clients[name].portfolios[pname].stocks[symb]= nil
                       $broker.clients[name].portfolios[pname].stocks[symb]= Stock.new(symb,num)
                     else
                       $broker.clients[name].portfolios[pname].stocks[symb].quantity+= num
                     end
               when 'N'
-                $broker.client[name].cash -= val
-                 $brokers.clients[name].portfolios['General'].stocks[symb].quantity+=num
+                $broker.clients[name].cash -= val
+                 $broker.clients[name].portfolios['General'].stocks[symb].quantity+=num
                 else
                   puts 'Make up your mind!'
               end #ends case

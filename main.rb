@@ -2,14 +2,15 @@
 require "pry"
 require "yahoofinance"
 require_relative "broker"
-require_relative "functions"
 require_relative "portfolio"
 require_relative "client"
 require_relative "stock"
+require_relative "functions"
+
 
 $broker= Broker.new('GASE Broker')
 
-
+binding.pry
 response = menu
 while response != 'Q'
   case response
@@ -22,4 +23,3 @@ while response != 'Q'
   response = menu
 end
 
-binding.pry

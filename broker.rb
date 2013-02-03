@@ -7,7 +7,7 @@ class Broker
   end
 
   def to_s
-    puts "This is the #{name} brokerage"
+    puts "This is the #{name} brokerage. We have #{clients.count} clients"
   end
 
 end

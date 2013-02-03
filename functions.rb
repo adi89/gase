@@ -2,11 +2,15 @@
 $broker= Broker.new('GASE Broker')
 
 def menu
-  puts 'clear'
+  puts "clear"
   puts "****Welcome to the greatest broker program EVER *** \n"
-  puts 'Register as a new client (necessary if you wish to buy or sell)'
-
-
+  puts "Register as a new client (necessary if you wish to buy or sell)"
+  puts " "
+  puts "(1) Enroll a new client"
+  puts "(2) Buy shares"
+  puts "(3) Sell shares"
+  puts "(4) View client balances"
+  response = gets.to_i
 end
 
 
@@ -40,9 +44,9 @@ end
 
 def view_balance
   print "Name: "
-  name= gets.chomp
+  name = gets.chomp
   print "Would you like to see your (c)ash-balance, (s)tock balance, or (t)otal balance?"
-  ans= gets.chomp.downcase
+  ans = gets.chomp.downcase
   case ans
     when 'c'
       cashbalance
@@ -52,7 +56,7 @@ def view_balance
       totalbalance
     end
     puts "Would you like to view another balance. Y or N"
-    derp= gets.chomp.upcase
+    derp = gets.chomp.upcase
       if 'Y'
         view_balance
         else

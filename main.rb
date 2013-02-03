@@ -5,7 +5,7 @@ require_relative "broker"
 require_relative "functions"
 require_relative "portfolio"
 require_relative "client"
-
+require_relative "stock"
 
 response = menu
 while response != 'Q'
@@ -18,3 +18,5 @@ while response != 'Q'
 
   response = menu
 end
+
+binding.pry

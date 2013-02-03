@@ -1,3 +1,4 @@
+
 class Portfolio
 
   attr_accessor :portfolio_name, :stocks

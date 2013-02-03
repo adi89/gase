@@ -12,7 +12,7 @@ $broker= Broker.new('GASE Broker')
 
 
 def menu
-  puts "clear"
+  puts `clear`
   puts " _______ _______ _______ _______ "
   puts "|     __|   _   |     __|    ___|"
   puts "|    |  |       |__     |    ___|"
@@ -38,8 +38,10 @@ def new_client
   name= gets.chomp
   print "How much money will you deposit in cash account?"
   cash= gets.chomp
-  $broker.clients[name] << Client.new(name,cash)
-  $broker.clients[name].portfolios['General']= {}
+  name = Client.new(name, cash)
+  $broker.clients['name']
+  #$broker.clients[:name].portfolios['General']= {}
+  puts "#{name} has been added!"
 end
 
 ######### VIEW BALANCE FUNCTIONS

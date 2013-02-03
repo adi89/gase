@@ -1,5 +1,5 @@
 class Broker
-  attr_accessor :name
+  attr_accessor :name, :clients
 
   def initialize(name)
     @name = name

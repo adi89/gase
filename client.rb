@@ -9,7 +9,7 @@ class Client
     @portfolios= {}
   end
 
-  def to_s
-    puts "#{client} has a total stock account value of #{stock_value}"
-  end
+  # def to_s
+  #   puts "#{client} has a total stock account value of #{stock_value}"
+  # end
 end

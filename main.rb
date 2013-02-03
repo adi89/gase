@@ -10,7 +10,6 @@ require_relative "functions"
 
 $broker= Broker.new('GASE Broker')
 
-
 response = menu
 while response != 'Q'
   case response
@@ -18,8 +17,8 @@ while response != 'Q'
   when '2' then buy_shares
   when '3' then sell_shares
   when '4' then view_balances
+  when '5' then create_portfolio
   end
-binding.pry
   response = menu
 end
 

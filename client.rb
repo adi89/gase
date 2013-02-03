@@ -1,10 +1,10 @@
 class Client
 
-  attr_accessor :name, :cash, :stock_value
+  attr_accessor :name, :cash, :stock_value, :portfolios
 
   def initialize(name, cash)
     @name = name
-    @cash= cash
+    @cash = cash.to_i
     @stock_value = 0
     @portfolios= {}
   end

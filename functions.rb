@@ -25,37 +25,31 @@ def new_client
 end
 
 
-def totalbalance
-  print "Name: "
-  name= gets.chomp
+def totalbalance(name)
   puts " Your total balance is $#{$broker.clients[name].cash + $broker.clients[name].stock_value}."
 end
 
-def stockbalance
-  print "Name: "
-  name= gets.chomp
-  puts "Your stock balance is $#{$broker.clients[name].stock_value}. "
+# we need to find a way to calculate total of all portfolios for this stock balance
+def stockbalance(name)
+   puts "Your stock balance is $#{$broker.clients[name].stock_value}. "
 end
 
-def cashbalance
-  print "Name: "
-  name= gets.chomp
+def cashbalance(name)
   puts "Your cash balance is $#{broker.clients[name].cash}. "
 end
 
-def view_balance
-  print "Name: "
-  name = gets.chomp
+def view_balance(name)
   print "Would you like to see your (c)ash-balance, (s)tock balance, or (t)otal balance?"
   ans = gets.chomp.downcase
   case ans
     when 'c'
-      cashbalance
+      cashbalance(name)
     when 's'
-      stockbalance
+      stockbalance(name)
     when 't'
-      totalbalance
+      totalbalance(name)
     end
+
     puts "Would you like to view another balance. Y or N"
     derp = gets.chomp.upcase
       if 'Y'

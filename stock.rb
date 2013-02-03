@@ -1,15 +1,15 @@
 class Stock
 
-  attr_accessor :value , :num
+  attr_accessor :name, :value, :quantity
 
-  def initialize(value, num, name)
+  def initialize(name, quantity)
     @name = name
     @value = value
     @num = num
   end
 
   def to_s
-    puts "There are #{num} shares of #{name }stock, which has a value of #{value}. "
+    puts "There are #{num} shares of #{name}stock, which has a value of #{value}. "
   end
 
 end

@@ -42,6 +42,8 @@ def new_client
   $broker.clients['name']
   #$broker.clients[:name].portfolios['General']= {}
   puts "#{name} has been added!"
+  puts "press return to continue"
+  gets
 end
 
 ######### VIEW BALANCE FUNCTIONS

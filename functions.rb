@@ -10,7 +10,8 @@ def menu
   puts "(2) Buy shares"
   puts "(3) Sell shares"
   puts "(4) View client balances"
-  response = gets.to_i
+  puts "(Q) Quit GASE Broker\n\n "
+  gets.chomp
 end
 
 
@@ -33,7 +34,7 @@ end
 def stockbalance
   print "Name: "
   name= gets.chomp
-  puts "Your stock balance is $#{$broker.clients[name].cash}. "
+  puts "Your stock balance is $#{$broker.clients[name].stock_value}. "
 end
 
 def cashbalance

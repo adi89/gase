@@ -1,6 +1,8 @@
 
 $broker= Broker.new('GASE Broker')
 
+######### MAIN MENU FUNCTION
+
 def menu
   puts "clear"
   puts "****Welcome to the greatest broker program EVER *** \n"
@@ -14,16 +16,18 @@ def menu
   gets.chomp
 end
 
+########## ADD NEW CLIENT FUNCTION
 
 def new_client
   print "Name: "
   name= gets.chomp
-  print "How much money is in you cash account?"
+  print "How much money will you deposit in cash account?"
   cash= gets.chomp
   $broker.clients[name]= Client.new(name,cash)
   $broker.clients[name].portfolios['General']= {}
 end
 
+######### VIEW BALANCE FUNCTIONS
 
 def totalbalance(name)
   puts " Your total balance is $#{$broker.clients[name].cash + $broker.clients[name].stock_value}."
@@ -44,20 +48,25 @@ def view_balance(name)
   case ans
     when 'c'
       cashbalance(name)
+      gets
     when 's'
       stockbalance(name)
+      gets
     when 't'
       totalbalance(name)
-    end
+      gets
+  end
 
     puts "Would you like to view another balance. Y or N"
     derp = gets.chomp.upcase
-      if 'Y'
-        view_balance
+      if derp == 'Y'
+        view_balance(name)
         else
           puts 'Have a nice day!'
       end
-  end
+end
+
+########## CREATE PORTFOLIO FUNCTIONS
 
   #unsure about this -Ron
   def create_portfolio

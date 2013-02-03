@@ -65,15 +65,11 @@ def view_balance
       end
   end
 
+  #unsure about this -Ron
   def create_portfolio
-    print
-
-
-
-
-
-
-
-
-
-
+    puts "What is the client name? "
+    name = gets.chomp
+    puts "What would you like to call the portfolio?"
+    portfolio_name = gets.chomp
+    $broker.clients[name].portfolio[] << Portfolio.new(portfolio_name)
+  end

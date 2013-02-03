@@ -1,6 +1,7 @@
 
 require 'pry'
 require_relative "broker"
+require_relative 'functions'
 require_relative "portfolio"
 require_relative "client"
 require_relative 'functions'

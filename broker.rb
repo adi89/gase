@@ -10,5 +10,6 @@ class Broker
   def to_s
     puts "This is the #{name} brokerage"
   end
+
 end
 

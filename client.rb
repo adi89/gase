@@ -4,8 +4,8 @@ class Client
 
   def initialize(name, cash)
     @name = name
-    @cash = cash
-    @stock_value = stock_value
+    @cash= cash
+    @stock_value = 0
     @portfolios= {}
   end
 

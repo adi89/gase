@@ -1,15 +1,8 @@
 
-$broker= Broker.new('GASE Broker')
+$broker= Broker.new('GASE')
+$broker.clients = Client.new('test', 20000)
 
 ######### MAIN MENU FUNCTION
-
-
-
-
-
-
-
-
 
 def menu
   puts `clear`
@@ -18,7 +11,7 @@ def menu
   puts "|    |  |       |__     |    ___|"
   puts "|_______|___|___|_______|_______|"
   puts "                                 "
-  puts "****Welcome to the greatest broker program EVER *** \n"
+  puts "****Welcome to the worst broker program EVER *** \n"
   puts "Register as a new client (necessary if you wish to buy or sell)"
   puts " "
   puts "(1) Enroll a new client"
@@ -38,10 +31,9 @@ def new_client
   name= gets.chomp
   print "How much money will you deposit in cash account?"
   cash= gets.chomp
-  name = Client.new(name, cash)
-  $broker.clients['name']
-  #$broker.clients[:name].portfolios['General']= {}
-  puts "#{name} has been added!"
+  $broker.clients = Client.new(name, cash)
+  #puts $broker.clients[name].name
+  # $broker.clients[name].portfolios['General'] = Portfolio.new('General')
   puts "press return to continue"
   gets
 end

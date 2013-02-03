@@ -1,4 +1,6 @@
 
+require 'yahoofinance'
+
 $broker= Broker.new('GASE Broker')
 
 ######### MAIN MENU FUNCTION
@@ -40,7 +42,7 @@ def new_client
   cash= gets.chomp
   name = Client.new(name, cash)
   $broker.clients['name']
-  #$broker.clients[:name].portfolios['General']= {}
+  $broker.clients[name].portfolios['General']= Portfolio.new('General')
   puts "#{name} has been added!"
   puts "press return to continue"
   gets
@@ -58,7 +60,7 @@ def stockbalance(name)
 end
 
 def cashbalance(name)
-  puts "Your cash balance is $#{broker.clients[name].cash}. "
+  puts "Your cash balance is $#{$broker.clients[name].cash}. "
 end
 
 def view_balance(name)
@@ -93,5 +95,52 @@ end
     name = gets.chomp
     puts "What would you like to call the portfolio?"
     portfolio_name = gets.chomp
-    $broker.clients[name].portfolio[] << Portfolio.new(portfolio_name)
+    $broker.clients[name].portfolios[portfolio_name] = Portfolio.new(portfolio_name)
   end
+
+
+def buy_shares
+  puts "What is the client name?"
+  name= gets.chomp
+
+  if $broker.clients[name] = nil
+    puts "Sorry. You entered an invalid client name. If you have not already registered, please do so."
+  else
+
+    print "What stock would you like to buy? Give the ticker symbol: "
+    symb= gets.chomp.upcase
+    print 'What quantity?'
+    num= gets.chomp.to_i
+
+
+    val= (YahooFinance::get_quotes(YahooFinance::StandardQuote, symb)[symb].lastTrade) * num
+
+    if val > $broker.clients[name].cash
+        puts "You don't have enough money in your cash account for this transaction."
+      else
+        print 'Would you like to place #{symb} into a portfolio? Y or N?'
+          p= gets.chomp.upcase
+            case p
+              when 'Y'
+                  prints "Enter portfolio name"
+                  pname= gets.chomp.upcase
+                  $broker.client[name].cash -= val
+                    if $broker.clients[name].portfolios[pname].stocks[symb]= nil
+                      $broker.clients[name].portfolios[pname].stocks[symb]= Stock.new(symb,num)
+                    else
+                      $broker.clients[name].portfolios[pname].stocks[symb].quantity+= num
+                    end
+              when 'N'
+                $broker.client[name].cash -= val
+                 $brokers.clients[name].portfolios['General'].stocks[symb].quantity+=num
+                else
+                  puts 'Make up your mind!'
+              end #ends case
+          end #ends if then else
+
+        end #ends broker ame being nil
+      end #buy shares end
+
+
+
+
